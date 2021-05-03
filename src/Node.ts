@@ -16,3 +16,4 @@ export class MyNode<T> {
   }
 }
 
+export type NodeOrNull<T> = MyNode<T> | null;

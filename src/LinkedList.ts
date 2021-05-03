@@ -1,4 +1,4 @@
-import { MyNode } from "./Node";
+import { MyNode, NodeOrNull } from "./Node";
 
 class LinkedList<T> {
   private head?: MyNode<T> = null;
@@ -25,7 +25,7 @@ class LinkedList<T> {
     return this;
   }
 
-  nodeAt(index: number): MyNode<T> | null {
+  nodeAt(index: number): NodeOrNull<T> {
     var currentNode = this.head;
     var currentIndex = 0;
     while (currentIndex < index && currentNode !== null) {
