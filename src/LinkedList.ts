@@ -25,6 +25,29 @@ class LinkedList<T> {
     return this;
   }
 
+  nodeAt(index: number): MyNode<T> | null {
+    var currentNode = this.head;
+    var currentIndex = 0;
+    while (currentIndex < index && currentNode !== null) {
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+    return currentNode;
+  }
+
+  insertAfter(value: T, afterNode: MyNode<T>): MyNode<T> {
+    if (afterNode == this.tail) {
+      this.append(value);
+      return this.tail!!;
+    }
+    const newNode = new MyNode(value, afterNode.next);
+    afterNode.next = newNode;
+
+    this.size++;
+
+    return newNode;
+  }
+
   isEmpty(): Boolean {
     return this.size === 0;
   }
@@ -39,7 +62,7 @@ class LinkedList<T> {
 }
 
 let list = new LinkedList<number>();
-list.push(3).push(2).push(1).push(0).append(7);
+list.push(3).push(2).push(1).push(0).append(7).insertAfter(6, list.nodeAt(4));
 
 console.log(list.toString());
 console.log(list.getSize());

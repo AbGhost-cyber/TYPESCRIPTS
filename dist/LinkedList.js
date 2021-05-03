@@ -25,6 +25,25 @@ var LinkedList = /** @class */ (function () {
         this.size++;
         return this;
     };
+    LinkedList.prototype.nodeAt = function (index) {
+        var currentNode = this.head;
+        var currentIndex = 0;
+        while (currentIndex < index && currentNode !== null) {
+            currentNode = currentNode.next;
+            currentIndex++;
+        }
+        return currentNode;
+    };
+    LinkedList.prototype.insertAfter = function (value, afterNode) {
+        if (afterNode == this.tail) {
+            this.append(value);
+            return this.tail;
+        }
+        var newNode = new Node_1.MyNode(value, afterNode.next);
+        afterNode.next = newNode;
+        this.size++;
+        return newNode;
+    };
     LinkedList.prototype.isEmpty = function () {
         return this.size === 0;
     };
@@ -39,6 +58,6 @@ var LinkedList = /** @class */ (function () {
     return LinkedList;
 }());
 var list = new LinkedList();
-list.push(3).push(2).push(1).push(0).append(7);
+list.push(3).push(2).push(1).push(0).append(7).insertAfter(6, list.nodeAt(4));
 console.log(list.toString());
 console.log(list.getSize());
