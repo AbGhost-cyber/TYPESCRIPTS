@@ -14,5 +14,6 @@ function longest<Type extends { length: number }>(a: Type, b: Type) {
   }
 }
 
-const longerArray = longest([1, 2], [1, 2, 3]);
-console.log(longerArray);
+function combine<T>(arr1: T[], arr2: T[]): T[] {
+  return arr1.concat(arr2);
+}

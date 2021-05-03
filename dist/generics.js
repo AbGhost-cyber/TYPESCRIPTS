@@ -12,5 +12,6 @@ function longest(a, b) {
         return b;
     }
 }
-var longerArray = longest([1, 2], [1, 2, 3]);
-console.log(longerArray);
+function combine(arr1, arr2) {
+    return arr1.concat(arr2);
+}
