@@ -20,7 +20,6 @@ function someFunction(value) {
     return someOtherFunction;
 }
 let result = someFunction("");
-
 class GenericNumber {
 }
 let m = new GenericNumber();
