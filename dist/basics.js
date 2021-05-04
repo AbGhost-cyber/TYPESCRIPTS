@@ -5,13 +5,13 @@ function getArea(shape) {
         case "square":
             return Math.pow(shape.sideLength, 2);
         default:
-            var _exhaustiveCheck = shape;
+            const _exhaustiveCheck = shape;
             return _exhaustiveCheck;
     }
 }
-var shape = {
+const shape = {
     kind: "circle",
-    radius: 21
+    radius: 21,
 };
 function greeter(fn) {
     fn("Hello You");
@@ -20,5 +20,5 @@ function printToConsole(s) {
     console.log(s);
 }
 greeter(printToConsole);
-var pageNo = "25";
-var num = pageNo;
+let pageNo = "25";
+let num = pageNo;

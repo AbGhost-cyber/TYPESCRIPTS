@@ -43,3 +43,25 @@ m.add = function (x, y) {
 };
 
 console.log(m.add(1, 2));
+
+interface StarShip {
+  name: string;
+  enableHypeJump: boolean;
+}
+
+interface StarshipProps {
+  color?: "blue" | "red" | "green";
+}
+//Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+type TakeNot<V, C extends keyof any> = Pick<V, Exclude<keyof V, C>>;
+
+type NameOnly = Omit<StarShip, "name">;
+
+type AvailableDrinks = "coffee" | "Tea" | "orange juice" | "lemonade";
+
+let JohnsDrink: AvailableDrinks;
+
+type DrinksJaneDontLike = "coffee" | "orange juice";
+let janesDrink: Exclude<AvailableDrinks, DrinksJaneDontLike>;
+
+

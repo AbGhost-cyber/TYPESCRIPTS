@@ -16,18 +16,18 @@ function combine(arr1, arr2) {
     return arr1.concat(arr2);
 }
 function someFunction(value) {
-    var someOtherFunction = function (someArg) { };
+    const someOtherFunction = (someArg) => { };
     return someOtherFunction;
 }
-var result = someFunction("");
-var GenericNumber = /** @class */ (function () {
-    function GenericNumber() {
-    }
-    return GenericNumber;
-}());
-var m = new GenericNumber();
+let result = someFunction("");
+
+class GenericNumber {
+}
+let m = new GenericNumber();
 m.zeroValue = 0;
 m.add = function (x, y) {
     return x + y;
 };
 console.log(m.add(1, 2));
+let JohnsDrink;
+let janesDrink;

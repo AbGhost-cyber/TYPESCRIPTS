@@ -17,3 +17,5 @@ class User {
 let user = new User("Ab", "Dremo");
 user.setFirstName("David");
 console.log(user.getFullName());
+
+

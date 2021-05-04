@@ -1,17 +1,16 @@
-var Box = /** @class */ (function () {
-    function Box() {
+class Box {
+    constructor() {
         this.contents = [];
     }
-    Box.prototype.add = function (value) {
+    add(value) {
         this.contents.push(value);
         return this;
-    };
-    Box.prototype.size = function () {
+    }
+    size() {
         return this.contents.length;
-    };
-    return Box;
-}());
-var box = new Box();
+    }
+}
+const box = new Box();
 box.add(1).add(2).add(3);
 console.log(box.size());
-box.contents.forEach(function (item) { return console.log(item); });
+box.contents.forEach((item) => console.log(item));

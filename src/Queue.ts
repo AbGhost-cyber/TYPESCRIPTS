@@ -1,5 +1,8 @@
 type QueueOrNull<T> = T | null;
 
+/*
+ * queue uses fifo- first in , first out
+ */
 interface Queue<T> {
   enqueue(value: T): boolean;
   dequeue(): QueueOrNull<T>;
@@ -28,12 +31,34 @@ class QueueImpl<T> implements Queue<T> {
   stringify(): string {
     return this.queueList.toString();
   }
+  //create queue from a normal list
+  static create<T>(arr: T[]): QueueImpl<T> {
+    const queue = new QueueImpl<T>();
+    arr.forEach((item) => {
+      queue.enqueue(item);
+    });
+    return queue;
+  }
 }
-const queue = new QueueImpl<string>();
-queue.enqueue("John");
-queue.enqueue("Jeremiah");
-queue.enqueue("Joseph");
-queue.enqueue("Jacob");
-console.log(`before serving ${queue.stringify()}`);
-queue.dequeue();
-console.log(`after serving ${queue.stringify()}`);
+//support function
+function queueOf<T>(...elements: T[]): Queue<T> {
+  return QueueImpl.create(elements);
+}
+
+// const queue = new QueueImpl<string>();
+// queue.enqueue("John");
+// queue.enqueue("Jeremiah");
+// queue.enqueue("Joseph");
+// queue.enqueue("Jacob");
+// console.log(`before serving ${queue.stringify()}`);
+// queue.dequeue();
+// console.log(`after serving ${queue.stringify()}`);
+
+// const myArr: string[] = ["Ab", "Dremo", "phillip", "paul", "josh"];
+// const queue = queueOf("Ab", "Dremo", "phillip", "paul", "josh");
+// console.log(queue.stringify());
+
+
+// var queue = QueueImpl.create(myArr);
+// console.log(queue.stringify());
+// console.log(queue.dequeue());
