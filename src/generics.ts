@@ -64,4 +64,4 @@ let JohnsDrink: AvailableDrinks;
 type DrinksJaneDontLike = "coffee" | "orange juice";
 let janesDrink: Exclude<AvailableDrinks, DrinksJaneDontLike>;
 
-
+type arr<T> = Array<T>;
