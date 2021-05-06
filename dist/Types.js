@@ -12,4 +12,21 @@ const isIdeal = () => {
     }
     return myArray;
 };
-console.log(isIdeal());
+let JohnsDrink;
+let janesDrink;
+function printAll(strs) {
+    if (strs && typeof strs === "object") {
+        strs.forEach((item) => console.log(item));
+    }
+    else if (typeof strs === "string")
+        console.log(strs);
+}
+const bool = {};
+const person = makeWatchedObject({
+    firstName: "Soarise",
+    lastName: "Ronan",
+    age: 26,
+});
+person.on("ageChanged", (newValue) => {
+    console.log(newValue);
+});

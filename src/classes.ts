@@ -16,6 +16,13 @@ class User {
 }
 let user = new User("Ab", "Dremo");
 user.setFirstName("David");
-console.log(user.getFullName());
+//console.log(user.getFullName());
 
+class Params {
+  constructor(
+    public readonly x: number,
+    protected y: number,
+    private z: number
+  ) {}
+}
 

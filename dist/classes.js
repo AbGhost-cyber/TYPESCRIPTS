@@ -12,4 +12,11 @@ class User {
 }
 let user = new User("Ab", "Dremo");
 user.setFirstName("David");
-console.log(user.getFullName());
+//console.log(user.getFullName());
+class Params {
+    constructor(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+}

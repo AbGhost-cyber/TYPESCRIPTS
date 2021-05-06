@@ -12,6 +12,11 @@ function longest(a, b) {
         return b;
     }
 }
+function map(arr, fn) {
+    return arr.map(fn);
+}
+const parsed = map([1, 2, 3, 4], (n) => n * 2);
+//console.log(parsed);
 function combine(arr1, arr2) {
     return arr1.concat(arr2);
 }
@@ -27,6 +32,3 @@ m.zeroValue = 0;
 m.add = function (x, y) {
     return x + y;
 };
-console.log(m.add(1, 2));
-let JohnsDrink;
-let janesDrink;

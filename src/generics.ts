@@ -14,6 +14,12 @@ function longest<Type extends { length: number }>(a: Type, b: Type) {
   }
 }
 
+function map<I, O>(arr: I[], fn: (a: I) => O): O[] {
+  return arr.map(fn);
+}
+const parsed = map([1, 2, 3, 4], (n) => n * 2);
+//console.log(parsed);
+
 function combine<T>(arr1: T[], arr2: T[]): T[] {
   return arr1.concat(arr2);
 }
@@ -42,7 +48,7 @@ m.add = function (x, y) {
   return x + y;
 };
 
-console.log(m.add(1, 2));
+//console.log(m.add(1, 2));
 
 interface StarShip {
   name: string;
@@ -52,16 +58,4 @@ interface StarShip {
 interface StarshipProps {
   color?: "blue" | "red" | "green";
 }
-//Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
-type TakeNot<V, C extends keyof any> = Pick<V, Exclude<keyof V, C>>;
 
-type NameOnly = Omit<StarShip, "name">;
-
-type AvailableDrinks = "coffee" | "Tea" | "orange juice" | "lemonade";
-
-let JohnsDrink: AvailableDrinks;
-
-type DrinksJaneDontLike = "coffee" | "orange juice";
-let janesDrink: Exclude<AvailableDrinks, DrinksJaneDontLike>;
-
-type arr<T> = Array<T>;

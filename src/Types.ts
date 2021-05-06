@@ -46,4 +46,83 @@ const isIdeal = () => {
   return myArray;
 };
 
-console.log(isIdeal());
+//console.log(isIdeal());
+
+//Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+type TakeNot<V, C extends keyof any> = Pick<V, Exclude<keyof V, C>>;
+
+type NameOnly = Omit<StarShip, "name">;
+
+type AvailableDrinks = "coffee" | "Tea" | "orange juice" | "lemonade";
+
+let JohnsDrink: AvailableDrinks;
+
+type DrinksJaneDontLike = "coffee" | "orange juice";
+let janesDrink: Exclude<AvailableDrinks, DrinksJaneDontLike>;
+
+type arr<T> = Array<T>;
+
+function printAll(strs: string | string[]) {
+  if (strs && typeof strs === "object") {
+    strs.forEach((item) => console.log(item));
+  } else if (typeof strs === "string") console.log(strs);
+}
+//printAll(["me", "you", "us"]);
+
+type orNull<Type> = Type | null;
+type oneOrMany<Type> = Type | Type[];
+type oneOrManyOrNull<Type> = orNull<oneOrMany<Type>>;
+
+//tuples
+type StringNumberPair = [string, number];
+
+type Predicate = (x: unknown) => boolean;
+
+type K = ReturnType<Predicate>;
+
+type Flatten<Type> = Type extends Array<infer Item> ? Item : Type;
+
+type arrayOf<T> = [T] extends [any] ? T[] : never;
+
+type Horse = "horse";
+
+type OnlyBoolsAndHorses = {
+  [key: string]: boolean | Horse;
+};
+const bool: OnlyBoolsAndHorses = {};
+
+//remove property from a field
+
+type RemoveField<Type, K extends keyof Type> = {
+  [P in keyof Type as Exclude<P, K>]: Type[P];
+};
+
+interface EmailPassWordUsers {
+  name: string;
+  email: string;
+  password: string;
+}
+
+type ThirdPartyUsers = RemoveField<EmailPassWordUsers, "password">;
+
+type PropEventSource<Type> = {
+  on<Key extends string & keyof Type>(
+    eventName: `${Key}Changed`,
+    callback: (newValue: Type[Key]) => void
+  );
+};
+
+declare function makeWatchedObject<Type>(
+  obj: Type
+): Type & PropEventSource<Type>;
+
+const person = makeWatchedObject({
+  firstName: "Soarise",
+  lastName: "Ronan",
+  age: 26,
+});
+person.on("ageChanged", (newValue) => {
+  console.log(newValue);
+});
+
+
