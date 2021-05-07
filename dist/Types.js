@@ -22,11 +22,14 @@ function printAll(strs) {
         console.log(strs);
 }
 const bool = {};
-const person = makeWatchedObject({
-    firstName: "Soarise",
-    lastName: "Ronan",
-    age: 26,
-});
-person.on("ageChanged", (newValue) => {
-    console.log(newValue);
-});
+// declare function makeWatchedObject<Type>(
+//   obj: Type
+// ): Type & PropEventSource<Type>;
+// const person = makeWatchedObject({
+//   firstName: "Soarise",
+//   lastName: "Ronan",
+//   age: 26,
+// });
+// person.on("ageChanged", (newValue) => {
+//   console.log(newValue);
+// });

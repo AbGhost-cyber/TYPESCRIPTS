@@ -112,17 +112,17 @@ type PropEventSource<Type> = {
   );
 };
 
-declare function makeWatchedObject<Type>(
-  obj: Type
-): Type & PropEventSource<Type>;
+// declare function makeWatchedObject<Type>(
+//   obj: Type
+// ): Type & PropEventSource<Type>;
 
-const person = makeWatchedObject({
-  firstName: "Soarise",
-  lastName: "Ronan",
-  age: 26,
-});
-person.on("ageChanged", (newValue) => {
-  console.log(newValue);
-});
+// const person = makeWatchedObject({
+//   firstName: "Soarise",
+//   lastName: "Ronan",
+//   age: 26,
+// });
+// person.on("ageChanged", (newValue) => {
+//   console.log(newValue);
+// });
 
 
